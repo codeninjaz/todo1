@@ -1,14 +1,17 @@
 import React from 'react';
 import todoStore from './js/todoStore'
+import 'babel-core/polyfill' //Får Object.assign att lira i applikationen
 
 class App extends React.Component {
   constructor(props) {
     super(props)
+    this.state=todoStore.getState();
   }
 
   componentDidMount(){
-    todoStore.subscribe(() =>
-      console.log(todoStore.getState())
+    todoStore.subscribe(() =>{
+        this.setState(todoStore.getState());
+      }
     );
   }
 
@@ -18,8 +21,11 @@ class App extends React.Component {
 
   render(){
     return(
-      <div onClick={this.doStuff}>
-        RÖV
+      <div>
+        <div onClick={this.doStuff}>
+          HITME!
+        </div>
+        <span>{this.state.counter}</span>
       </div>
     );
   }
