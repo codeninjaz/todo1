@@ -25,11 +25,21 @@ class App extends React.Component {
     todoStore.dispatch({ type: 'DECREMENT' });
   }
 
+  multiplyCounter() {
+    todoStore.dispatch({type: 'MULTIPLY'});
+  }
+
+  resetCounter() {
+    todoStore.dispatch({type: 'RESET'});
+  }
+
   render(){
     return(
       <div>
+          <Button onClick={this.multiplyCounter} color={'rgba(213, 211, 31, 0.7)'} value={'Mult'}/>&nbsp;
           <Button onClick={this.incrementCounter} color={'rgba(78, 179, 53, 0.7)'} value={'Up'}/>&nbsp;
-          <Button onClick={this.decrementCounter} color={'rgb(240, 144, 90)'} value={'Down'}/>
+          <Button onClick={this.decrementCounter} color={'rgb(240, 144, 90)'} value={'Down'}/>&nbsp;
+          <Button onClick={this.resetCounter} color={'rgb(196, 90, 240)'} value={'Reset'}/>
           <h1>{this.state.counter}</h1>
       </div>
     );

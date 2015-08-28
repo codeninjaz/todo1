@@ -11,9 +11,17 @@ function counter(state = initialState, action) {
       counter: state.counter + 1
     })
   case 'DECREMENT':
-  return Object.assign({}, state, {
-    counter: state.counter - 1
-  })
+    return Object.assign({}, state, {
+      counter: state.counter - 1
+    })
+  case 'MULTIPLY':
+    return Object.assign({}, state, {
+      counter: state.counter * 2
+    })
+  case 'RESET':
+    return Object.assign({}, state, {
+      counter: 0
+    })
   default:
     return state;
   }
