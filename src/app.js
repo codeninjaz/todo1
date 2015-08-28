@@ -1,5 +1,6 @@
 import React from 'react';
 import todoStore from './js/todoStore'
+import Button from './components/button'
 import 'babel-core/polyfill' //Får Object.assign att lira i applikationen
 
 class App extends React.Component {
@@ -22,10 +23,7 @@ class App extends React.Component {
   render(){
     return(
       <div>
-        <div onClick={this.doStuff}>
-          HITME!
-        </div>
-        <span>{this.state.counter}</span>
+          <Button onClick={this.doStuff} color={'rgb(138, 148, 240)'} value={'Hit: ' + this.state.counter}/>
       </div>
     );
   }
