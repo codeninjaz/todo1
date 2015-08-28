@@ -7,5 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react-redux": "^1.0.1",
+    "redux": "^1.0.1"
+  },
+  "devDependencies": {
+    "redux-devtools": "^1.1.2"
+  }
 }
