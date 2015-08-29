@@ -3,6 +3,7 @@ import todoStore from './js/todoStore'
 import Button from './components/button'
 import 'babel-core/polyfill' //Får Object.assign att lira i applikationen
 import './style/baseStyle.scss'
+import {incrementAction, decrementAction, multiplyAction} from './js/actions'
 
 class App extends React.Component {
   constructor(props) {
@@ -18,15 +19,15 @@ class App extends React.Component {
   }
 
   incrementCounter() {
-    todoStore.dispatch({ type: 'INCREMENT' });
+    todoStore.dispatch(incrementAction(7));
   }
 
   decrementCounter() {
-    todoStore.dispatch({ type: 'DECREMENT' });
+    todoStore.dispatch(decrementAction(8));
   }
 
   multiplyCounter() {
-    todoStore.dispatch({type: 'MULTIPLY'});
+    todoStore.dispatch(multiplyAction(3));
   }
 
   resetCounter() {
@@ -40,6 +41,7 @@ class App extends React.Component {
           <Button onClick={this.incrementCounter} color={'rgba(78, 179, 53, 0.7)'} value={'Up'}/>&nbsp;
           <Button onClick={this.decrementCounter} color={'rgb(240, 144, 90)'} value={'Down'}/>&nbsp;
           <Button onClick={this.resetCounter} color={'rgb(196, 90, 240)'} value={'Reset'}/>
+          <h1>{this.state.message}</h1>
           <h1>{this.state.counter}</h1>
       </div>
     );
