@@ -18,3 +18,10 @@ export function multiplyAction(value){
     value: value
  }
 }
+
+export function resetAction(value=0){
+  return {
+    type: 'RESET',
+    value: value
+ }
+}

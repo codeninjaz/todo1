@@ -24,7 +24,7 @@ function counter(state = initialState, action) {
     })
   case 'RESET':
     return Object.assign({}, state, {
-      counter: 0,
+      counter: action.value,
       message: 'Reset'
     })
   default:
