@@ -5,6 +5,11 @@ const initialState = {
   message: ''
 };
 
+const initialToDoState = {
+  name : 'default',
+  todos : []
+}
+
 function counter(state = initialState, action) {
   switch (action.type) {
   case 'INCREMENT':
@@ -32,8 +37,21 @@ function counter(state = initialState, action) {
   }
 }
 
+function todo(state = initialToDoState, action) {
+    switch (action.type) {
+      case 'ADDTODOITEM':
+        state.todos.push(action.value);
+        return Object.assign({}, state, {
+          name : 'default',
+          todos : state.todos
+        })
+      default:
+        return state;
+    }
+}
+
 // Create a Redux store holding the state of your app.
 // Its API is { subscribe, dispatch, getState }.
-var todoStore = createStore(counter);
+var todoStore = createStore(todo);
 
 export default todoStore;

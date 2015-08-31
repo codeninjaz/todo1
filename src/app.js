@@ -9,42 +9,11 @@ import {incrementAction, decrementAction, multiplyAction, resetAction} from './j
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state=todoStore.getState();
-  }
-
-  componentDidMount(){
-    todoStore.subscribe(() =>{
-        this.setState(todoStore.getState());
-      }
-    );
-  }
-
-  incrementCounter() {
-    todoStore.dispatch(incrementAction(7));
-  }
-
-  decrementCounter() {
-    todoStore.dispatch(decrementAction(8));
-  }
-
-  multiplyCounter() {
-    todoStore.dispatch(multiplyAction(3));
-  }
-
-  resetCounter() {
-    todoStore.dispatch(resetAction(1));
   }
 
   render(){
     return(
       <div>
-          <Button onClick={this.multiplyCounter} color={'rgba(213, 211, 31, 0.7)'} value={'Mult'}/>&nbsp;
-          <Button onClick={this.incrementCounter} color={'rgba(78, 179, 53, 0.7)'} value={'Up'}/>&nbsp;
-          <Button onClick={this.decrementCounter} color={'rgb(240, 144, 90)'} value={'Down'}/>&nbsp;
-          <Button onClick={this.resetCounter} color={'rgb(196, 90, 240)'} value={'Reset'}/>
-          <h1>{this.state.message}</h1>
-          <h1>{this.state.counter}</h1>
-
           <Todo name="jesus" />
           <Todo name="tjoho"/>
           <Todo name="asd" />
