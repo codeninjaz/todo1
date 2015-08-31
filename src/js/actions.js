@@ -18,3 +18,10 @@ export function multiplyAction(value){
     value: value
  }
 }
+
+export function AddToDoItemAction(value){
+  return {
+    type: 'ADDTODOITEM',
+    value: value
+  }
+}

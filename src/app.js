@@ -1,5 +1,6 @@
 import React from 'react';
 import todoStore from './js/todoStore'
+import Todo from './components/todo'
 import Button from './components/button'
 import 'babel-core/polyfill' //Får Object.assign att lira i applikationen
 import './style/baseStyle.scss'
@@ -43,6 +44,10 @@ class App extends React.Component {
           <Button onClick={this.resetCounter} color={'rgb(196, 90, 240)'} value={'Reset'}/>
           <h1>{this.state.message}</h1>
           <h1>{this.state.counter}</h1>
+
+          <Todo name="jesus" />
+          <Todo name="tjoho"/>
+          <Todo name="asd" />
       </div>
     );
   }
