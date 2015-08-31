@@ -19,9 +19,17 @@ export function multiplyAction(value){
  }
 }
 
+
 export function AddToDoItemAction(value){
   return {
     type: 'ADDTODOITEM',
     value: value
   }
+}
+
+export function resetAction(value=0){
+  return {
+    type: 'RESET',
+    value: value
+ }
 }

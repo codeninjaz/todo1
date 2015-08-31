@@ -4,7 +4,7 @@ import Todo from './components/todo'
 import Button from './components/button'
 import 'babel-core/polyfill' //Får Object.assign att lira i applikationen
 import './style/baseStyle.scss'
-import {incrementAction, decrementAction, multiplyAction} from './js/actions'
+import {incrementAction, decrementAction, multiplyAction, resetAction} from './js/actions'
 
 class App extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class App extends React.Component {
   }
 
   resetCounter() {
-    todoStore.dispatch({type: 'RESET'});
+    todoStore.dispatch(resetAction(1));
   }
 
   render(){
