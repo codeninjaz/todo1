@@ -3,7 +3,7 @@ import React from 'react'
 const myStyle = {
   padding: '5px',
   backgroundColor: 'rgb(249, 205, 108)',
-  borderRadius: '5px',
+  borderRadius: '15px',
   display: 'inline-block',
   cursor: 'pointer',
   userSelect: 'none',
