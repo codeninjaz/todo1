@@ -1,35 +1,19 @@
-export function incrementAction(value){
+export function addNodeAction(node){
   return {
-    type: 'INCREMENT',
-    value: value
+    type: 'ADDNODE',
+    value: node
  }
 }
 
-export function decrementAction(value){
+export function logAction(node){
   return {
-    type: 'DECREMENT',
-    value: value
+    type: 'LOGTREE'
  }
 }
 
-export function multiplyAction(value){
+export function findAction(id){
   return {
-    type: 'MULTIPLY',
-    value: value
- }
-}
-
-
-export function AddToDoItemAction(value){
-  return {
-    type: 'ADDTODOITEM',
-    value: value
-  }
-}
-
-export function resetAction(value=0){
-  return {
-    type: 'RESET',
-    value: value
+    type: 'FINDNODE',
+    id: id
  }
 }

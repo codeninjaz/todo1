@@ -1,16 +1,9 @@
 import React from 'react'
 
 const myStyle = {
-  padding: '5px',
-  margin: '2px',
-  backgroundColor: 'rgb(249, 205, 108)',
-  borderRadius: '2px',
-  display: 'inline-block',
   cursor: 'pointer',
   userSelect: 'none',
   WebkitUserSelect: 'none',
-  textAlign: 'center',
-  width: '100px'
 }
 
 export default class button extends React.Component {
@@ -18,10 +11,12 @@ export default class button extends React.Component {
     super(props)
   }
 
+      // <div onClick={this.props.onClick} style={myStyle}>{this.props.value}</div>
   render(){
-    myStyle.backgroundColor=this.props.color;
     return(
-      <div onClick={this.props.onClick} style={myStyle}>{this.props.value}</div>
+      <svg width={80} height={100}>
+        <rect x="0" y="0" width="80" height="200" fill={this.props.color} style={myStyle} onClick={this.props.onClick} />
+      </svg>
     )
   }
 }

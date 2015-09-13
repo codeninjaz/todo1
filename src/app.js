@@ -3,11 +3,13 @@ import todoStore from './js/todoStore'
 import Button from './button'
 import 'babel-core/polyfill' // Får Object.assign att lira i applikationen
 import './style/baseStyle.scss'
-import { incrementAction, decrementAction, multiplyAction, resetAction } from './js/actions'
+import uuid from 'node-uuid'
+import {addNodeAction, logAction, findAction} from './js/actions'
 
 export class App extends React.Component {
   constructor( props) {
     super(props)
+    this.idString = ''
     this.state = todoStore.getState()
   }
 
@@ -18,31 +20,34 @@ export class App extends React.Component {
     )
   }
 
-  incrementCounter() {
-    todoStore.dispatch(incrementAction(7))
+  addNode() {
+    todoStore.dispatch(addNodeAction({
+      id: uuid.v4(),
+      color: '#0000ff'
+    }))
   }
 
-  decrementCounter() {
-    todoStore.dispatch(decrementAction(8))
+  logNodes() {
+    todoStore.dispatch(logAction())
   }
 
-  multiplyCounter() {
-    todoStore.dispatch(multiplyAction(7))
+  findNode() {
+    todoStore.dispatch(findAction(this.idString))
   }
 
-  resetCounter() {
-    todoStore.dispatch(resetAction(1))
+  handleIdChange(event){
+    this.idString = event.target.value;
   }
 
   render() {
     return (
     <div>
-      <Button onClick={this.multiplyCounter} color={ 'rgba(213, 20, 31, 0.7)'} value={ 'Mult'}/>
-      <Button onClick={this.incrementCounter} color={ 'rgba(78, 179, 53, 0.7)'} value={ 'Up'}/>
-      <Button onClick={this.decrementCounter} color={ 'rgb(240, 144, 90)'} value={ 'Down'}/>
-      <Button onClick={this.resetCounter} color={ 'rgb(196, 90, 240)'} value={ 'Reset'}/>
-      <h2>{this.state.message}</h2>
-      <h1>{this.state.counter}</h1>
+      <Button onClick={this.addNode} color={ 'rgba(13, 20, 231, 1)'} value={ 'Mult'}/>
+      <Button onClick={this.logNodes} color={ 'rgba(13, 200, 21, 1)'} value={ 'Mult'}/>
+      <Button onClick={this.findNode.bind(this)} color={ 'rgba(54, 180, 121, 1)'} value={ 'Mult'}/>
+      <input type="text" value={this.idString} onChange={this.handleIdChange.bind(this)} />
+      <h1>{this.state.message}</h1>
+      <h1>{this.state.root.children.length}</h1>
     </div>
     )
   }

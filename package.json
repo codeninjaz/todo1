@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "guid": "0.0.12",
+    "lodash": "^3.10.1",
+    "node-uuid": "^1.4.3",
     "react": "^0.13.3",
     "react-redux": "^1.0.1",
     "redbox-react": "^1.0.3",
